@@ -5,7 +5,7 @@
 
 
 //#define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-//define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
 #define STRING_SPLASH_LINE1 "v" STRING_VERSION // will be shown during bootup in line 1
 
 
@@ -37,7 +37,7 @@
 #endif
 
 #ifdef One_Up
-  #define CUSTOM_MACHINE_NAME "Q3d Two UP"
+  #define CUSTOM_MACHINE_NAME "Q3d One UP"
   #define X_MAX_POS 100 //OneUp size
   #define Y_MAX_POS 100
   #define Z_MAX_POS 125
@@ -48,9 +48,15 @@
 
 //#define SDSUPPORT // Enable SD Card Support with SD Ramps
 
+// @section machine
+
+// Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
+#define INVERT_X_DIR true
+#define INVERT_Y_DIR false
+#define INVERT_Z_DIR true
 
 
-#define STRING_VERSION "1.0.0"
+#define STRING_VERSION "1.0.1"
 #define STRING_URL "q3dprinter.com"
 
 #define STRING_SPLASH_LINE2 STRING_VERSION_CONFIG_H // will be shown during bootup in line2
@@ -78,7 +84,7 @@
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
- #define MACHINE_UUID ""
+// #define MACHINE_UUID ""
 
 // This defines the number of extruders
 // :[1,2,3,4]
@@ -305,12 +311,6 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 #define DISABLE_E false // For all extruders
 #define DISABLE_INACTIVE_EXTRUDER true //disable only inactive extruders and keep active extruder enabled
 
-// @section machine
-
-// Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR false
-#define INVERT_Z_DIR true
 
 // @section extruder
 

@@ -85,11 +85,11 @@
 #endif
 
 #ifndef FIRMWARE_URL
-  #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"
+  #define FIRMWARE_URL "https://github.com/wubbllez/Q3d-Marlin-RAMPS"
 #endif
 
 #ifndef BUILD_VERSION
-  #define BUILD_VERSION "V1; Sprinter/grbl mashup for gen6"
+  #define BUILD_VERSION "V1.0.2;"
 #endif
 
 #ifndef MACHINE_UUID
@@ -116,7 +116,7 @@
 #define MSG_BROWNOUT_RESET                  " Brown out Reset"
 #define MSG_WATCHDOG_RESET                  " Watchdog Reset"
 #define MSG_SOFTWARE_RESET                  " Software Reset"
-#define MSG_AUTHOR                          " | Author: "
+#define MSG_AUTHOR                          " | Author:Stephan Howanietz "
 #define MSG_CONFIGURATION_VER               " Last Updated: "
 #define MSG_FREE_MEMORY                     " Free Memory: "
 #define MSG_PLANNER_BUFFER_BYTES            "  PlannerBufferBytes: "
