@@ -11,8 +11,8 @@
 
 
 // Printer type
-//#define Three_Up  //Uncomment for ThreeUp
-#define Two_Up  //Uncomment for OneUp
+#define Three_Up  //Uncomment for ThreeUp
+//#define Two_Up  //Uncomment for OneUp
 //#define One_Up  //Uncomment for TwoUp
 
 
