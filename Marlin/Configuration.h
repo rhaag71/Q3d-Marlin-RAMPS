@@ -3,18 +3,18 @@
 
 #include "boards.h"
 
-
-//#define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
-#define STRING_SPLASH_LINE1 "v" STRING_VERSION // will be shown during bootup in line 1
-
-
-
 // Printer type
 #define Three_Up  //Uncomment for ThreeUp
 //#define Two_Up  //Uncomment for OneUp
 //#define One_Up  //Uncomment for TwoUp
 
+//Filament Drive Gear Type
+//#define Stainless_Gear  //Uncomment for New Gear
+#define Brass_Gear      //Uncomment for Old Gear
+
+//Hotend
+#define AnUBIS //Q3d AnUBIS Hotend
+//#define METAL  //Q3d Metal Hotend
 
 #ifdef Three_Up
     #define CUSTOM_MACHINE_NAME "Q3d Three UP"
@@ -48,6 +48,13 @@
 
 //#define SDSUPPORT // Enable SD Card Support with SD Ramps
 
+#ifdef Brass_Gear
+  #define E_Step 88.57326053533955
+#endif
+
+#ifdef Stainless_Gear
+  #define E_Step 136.611842 
+#endif
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
@@ -56,11 +63,14 @@
 #define INVERT_Z_DIR true
 
 
-#define STRING_VERSION "1.0.1"
+#define STRING_VERSION "1.0.2"
 #define STRING_URL "q3dprinter.com"
 
 #define STRING_SPLASH_LINE2 STRING_VERSION_CONFIG_H // will be shown during bootup in line2
 
+
+#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
+#define STRING_SPLASH_LINE1 "v" STRING_VERSION // will be shown during bootup in line 1
 // @section machine
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
@@ -177,12 +187,21 @@
                                   // is more then PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
   #define PID_INTEGRAL_DRIVE_MAX PID_MAX  //limit for the integral term
   #define K1 0.95 //smoothing factor within the PID
-
+#endif
 // AnUBIS Hotend PID
+#ifdef AnUBIS
     #define  DEFAULT_Kp 26.70
     #define  DEFAULT_Ki 1.55
     #define  DEFAULT_Kd 114.83
 #endif // PIDTEMP
+
+//Q3d Metal Hotend PID
+#ifdef METAL
+    #define  DEFAULT_Kp 24.95
+    #define  DEFAULT_Ki 2.42
+    #define  DEFAULT_Kd 64.37
+#endif
+  
 
 //===========================================================================
 //============================= Bed Temperature Control =====================
@@ -505,10 +524,14 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 /**
  * MOVEMENT SETTINGS
  */
+ 
+ //Extruder gear settings
+ //Old brass gear = 88.57326053533955
+ //New stainless gear = 136.611842
 
 #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {88.88888888889,88.88888888889,1511.811023622047,88.57326053533955}  // Steps per MM For One and Two Up printers. (X, Y, Z, E)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {88.88888888889,88.88888888889,1511.811023622047,E_Step}  // Steps per MM For One and Two Up printers. (X, Y, Z, E)
 #define DEFAULT_MAX_FEEDRATE          {500, 500, 5, 45}    // (mm/sec)    
 #define DEFAULT_MAX_ACCELERATION      {5000,5000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
