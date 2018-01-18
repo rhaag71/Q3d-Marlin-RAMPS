@@ -17,7 +17,7 @@
 //#define METAL  //Q3d Metal Hotend
 
 #ifdef Three_Up
-    #define CUSTOM_MACHINE_NAME "Q3d Three UP"
+  #define CUSTOM_MACHINE_NAME "Q3d Three UP"
   #define X_MAX_POS 175  //ThreeUP size
   #define Y_MAX_POS 175
   #define Z_MAX_POS 210
@@ -58,7 +58,7 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
+#define INVERT_X_DIR false
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
 
